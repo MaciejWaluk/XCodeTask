@@ -1,0 +1,80 @@
+.main-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #3B3B3A;
+}
+
+.request-list-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 35%;
+  max-height: 60%;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #ecebea;
+  border-radius: 8px;
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25), 8px 8px 40px 0px rgba(0, 0, 0, 0.25);
+}
+
+.table-container {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+thead {
+  position: sticky;
+  top: 0;
+  background-color: #ecebea;
+  z-index: 1;
+}
+
+
+th, td {
+  padding: 10px;
+  border: none;
+  text-align: left;
+  border-bottom: 1px solid #3B3B3A;
+
+}
+
+th:nth-child(n+2):nth-child(-n+3), td:nth-child(n+2):nth-child(-n+3) {
+  text-align: center;
+}
+
+th:first-of-type, td:first-of-type {
+  text-align: left;
+
+}
+
+th:last-of-type, td:last-of-type {
+  text-align: right;
+}
+
+button {
+  width: 20%;
+  align-self: flex-start;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #3B3B3A;
+  color: #f4f3f2;
+  cursor: pointer;
+  font-size: 1em;
+  transition: 0.3s;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #868685;
+}

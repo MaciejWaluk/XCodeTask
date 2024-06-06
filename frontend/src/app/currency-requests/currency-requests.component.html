@@ -1,0 +1,28 @@
+<div class="main-container">
+  <div class="request-list-container">
+    <h2>All requests</h2>
+    <div class="table-container">
+      <table>
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Date</th>
+          <th>Currency</th>
+          <th>Value (PLN)</th>
+        </tr>
+        </thead>
+        <tbody>
+          @for (request of requests; track requests){
+            <tr>
+              <td>{{ request.name }}</td>
+              <td>{{ request.date | date: 'short' }}</td>
+              <td>{{ request.currency }}</td>
+              <td>{{ request.value.toFixed(4) }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+    <button type="button" (click)="navigateHome()">Back</button>
+  </div>
+</div>

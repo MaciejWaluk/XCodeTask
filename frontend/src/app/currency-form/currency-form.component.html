@@ -1,0 +1,40 @@
+<div class="main-container">
+  <div class="component-container">
+    <div class="form-container">
+      <h1>ExchangeMate</h1>
+      <p>Real-time exchange rates</p>
+
+      <form [formGroup]="currencyForm" (ngSubmit)="$event.preventDefault(); handleForm()">
+        <div class="form-group">
+          <input type="text" id="userName" formControlName="userName" class="form-control" placeholder="Name">
+          @if (currencyForm.get('userName')?.invalid && (currencyForm.get('userName')?.dirty || currencyForm.get('userName')?.touched)) {
+            <small>This field is required</small>
+          }
+        </div>
+        <div class="form-group">
+          <input type="text" id="currencySymbol" formControlName="currencySymbol" class="form-control" placeholder="Symbol" oninput="this.value = this.value.toUpperCase()"
+          >
+          @if (currencyForm.get('currencySymbol')?.invalid && (currencyForm.get('currencySymbol')?.dirty || currencyForm.get('currencySymbol')?.touched)) {
+
+            @if(currencyForm.get('currencySymbol')?.hasError('required')) {
+              <small>This field is required</small>
+            }
+            @if (currencyForm.get('currencySymbol')?.hasError('minlength')) {
+              <small>Symbol needs to be at least 3 characters long</small>
+            }
+          }
+        </div>
+        <div class="button-group">
+          <button type="submit">Check</button>
+          <button type="button" (click)="navigateToRequests()">All requests</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="rate-display-container">
+      <p>Rate:</p>
+      <p class="rate-value">{{ rate !== null ? rate + ' zł' : 'Enter a symbol' }}</p>
+    </div>
+  </div>
+</div>
+
